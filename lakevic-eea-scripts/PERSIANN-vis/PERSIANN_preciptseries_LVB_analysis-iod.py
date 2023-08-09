@@ -5,16 +5,9 @@ Created on Thu Apr 20 16:11:08 2023
 @author: rpietroi
 
 this script: 
-    Analysis Precip and IOD to see which IOD months to use
-    clean the data of seasonal precip and seasonal iod, incl. fill nan in daily precip 
+    Analysis Precip and IOD to see which IOD months to look at, analyse correlations
 
 result: use iod OND, its the most positively correlated with precip_iod, precip_yearly and even precip_mam, and IOD_yearly 
-
-to do elsewhere:
-    1. detrend IOD? Like they did for ENSO in WWA EA drought? Use detrended as covariate? 
-    2. Detrend and standardize IOD and precip and see correlation / causal effect ? 
-    3. Corr with temperature stratified/conditioned on IOD 
-
 
 """
 #%%
@@ -119,7 +112,6 @@ corr_matrix_iod = iod_df.corr()
 # save
 #iod_df.to_csv(os.path.join(data_path, 'data-modified/iod-obs/dmi_seasonal_1870_2021.csv'), index=True, float_format='%.5f')
 
-# to do: detrend and save 
 
 #%%
 
@@ -137,94 +129,8 @@ data_daily['time'] = pd.to_datetime(data_daily['time'])
 data_daily = data_daily.set_index(['time'])
 data_daily['doy'] = data_daily.index.dayofyear
 
-# get daily climatology
-daily_climato = data_daily.groupby(data_daily.index.dayofyear).mean('time')
-
-# deal with nan values in data_daily to make own resampled data_monthly and check difference
-
-# find all nans
-badrows = np.isnan(data_daily['precipitation'])
-print(badrows.sum())
-
-# replace nans with climatology 
-data = data_daily.copy()
-data.loc[badrows,'precipitation'] = daily_climato.loc[data.loc[badrows,'doy'].values, 'precipitation'].values
-data_daily_fill = data.drop(columns=['doy'])
-data_daily_fill['precipitation'].plot()
-
-# check how many nans are left 
-badrows = np.isnan(data_daily['precipitation'])
-print(badrows.sum())
-
-# resample to monthly
-data_monthly_rsp = data_daily_fill.resample('M', label='right').sum()
-data_yearly_rsp = data_daily_fill.resample('Y', label='right').sum()
-
-
-# alternative - linearly interpolate - NO ! Use the climatology one
-# this makes quite a big difference in the early years (1980s)
-data = data_daily.copy()
-data.loc[badrows,'precipitation'] = np.interp(np.flatnonzero(badrows), np.flatnonzero(~badrows), data.loc[~badrows, 'precipitation'])
-data_daily_intr = data.drop(columns=['doy'])
-data_daily_intr['precipitation'].plot()
-
-data_monthly_rsp_intr = data_daily_intr.resample('M', label='right').sum()
-data_yearly_rsp_intr = data_daily_intr.resample('Y', label='right').sum()
-
-#%%
-
-fig, ax = plt.subplots()
-data_monthly_rsp['precipitation'].plot(ax=ax, label='filled climatology')
-data_monthly_rsp_intr['precipitation'].plot(ax=ax, label='filled interpolate')
-data_monthly['precipitation'].plot(ax=ax, label='raw')
-plt.legend()
-
-fig, ax = plt.subplots()
-data_monthly_rsp['precipitation'].resample('Y', label='right').sum().plot(ax=ax, label='filled climatology')
-data_yearly_rsp_intr['precipitation'].plot(ax=ax, label='filled interpolate')
-data_monthly['precipitation'].resample('Y', label='right').sum().plot(ax=ax, label='raw')
-plt.legend()
-
-#%% 
-
-# Make plot nicer 
-
-fig, ax = plt.subplots()
-data_monthly_rsp['precipitation'].resample('Y', label='right').sum().plot(ax=ax, label='PERSIANN-CDR after filling missing days with climatology')
-data_monthly['precipitation'].resample('Y', label='right').sum().plot(ax=ax, label='PERSIANN-CDR before filling missing days')
-plt.legend()
-plt.xlabel('')
-plt.ylabel("Precipitation (mm yr$^{-1}$)")
-
-# save
-#plt.savefig(os.path.join(fig_path,'PERSIANN_basinlake_fillnan_climato_SI_v2.pdf'),dpi=300)
-#plt.savefig(os.path.join(fig_path,'PERSIANN_basinlake_fillnan_climato_SI_v2.png'),dpi=300)
-
-
-#%%
-
-# save the data 
-#data_daily_intr.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_daily_ppn_intrp_1983_2020.csv'), index=True, float_format='%.5f')
-#data_monthly_rsp_intr.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_monthly_ppn_intrp_1983_2020.csv'), index=True, float_format='%.5f')
-#data_yearly_rsp_intr.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_yearly_ppn_intrp_1983_2020.csv'), index=True, float_format='%.5f')
-
-
-# save the data - error was here !!! i saved interpolated yearly data instead of climatology filled
-#data_daily_fill.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_daily_ppn_climato_fill_1983_2020.csv'), index=True, float_format='%.5f')
-#data_monthly_rsp.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_monthly_ppn_climato_fill_1983_2020.csv'), index=True, float_format='%.5f')
-#WRONG ::: data_yearly_rsp_intr.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_yearly_ppn_climato_fill_1983_2020.csv'), index=True, float_format='%.5f')
-#data_yearly_rsp.to_csv(os.path.join(data_path, 'data-modified/PERSIANN/PERSIANN_basinlake_yearly_ppn_climato_fill_1983_2020_correct.csv'), index=True, float_format='%.5f')
-
-
-
-
-
-
-#%% calc seasonal precips 
-
-#precip_monthly_df = data_monthly_rsp_intr # interpolated - old
-#precip_monthly_df = data_monthly_rsp # climatology - new
-precip_monthly_df = data_monthly["1985-01-31": "2020-12-31"] # not corrected, now cut it to 1985
+# select data
+precip_monthly_df = data_monthly["1985-01-31": "2020-12-31"] # cut it to 1985
 
 # OND
 precip_monthly_OND = precip_monthly_df[precip_monthly_df.index.month > 9]
@@ -256,11 +162,6 @@ precip_df.index = pd.to_datetime(precip_df.index).strftime('%Y').rename('years')
 Analysis Precip and IOD to see which IOD months to use 
 
 result: use OND, its the most positively correlated with precip_iod, precip_yearly and even precip_mam, and IOD_yearly 
-
-to do: 
-    1. detrend IOD? Like they did for ENSO? Use detrended as covariate? See correlation with precip
-    2. Detrend and standardize IOD and precip and see correlation / causal effect ? 
-    3. Corr with temperature stratified/conditioned on IOD 
 
 """
 iod = iod_df.loc[1985:2020, :]
