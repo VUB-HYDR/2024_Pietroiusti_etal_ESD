@@ -6,7 +6,7 @@ Created on Thu May  4 11:20:38 2023
 
 Extract climate variable (dL/dt for dt=180 days) from timeseries of lake levels
 Extract blockmax
-Save, for analysis in climate explorer or R 
+Save, for analysis in R 
 
 """
 
@@ -50,7 +50,7 @@ def extract_dLdt(data, LL_colname, dt_list):
     else:
         print('error check datatype')
     LL_df = pd.DataFrame(WBM_df.iloc[:,0]) # Select only first column, this should have lake levels
-    LL_df.columns = [LL_colname] # give the LL_colname as a string and here i turn it into list?
+    LL_df.columns = [LL_colname] # give the LL_colname as a string and here i turn it into list
 
     # if dt is not a list make it a list 
     if isinstance(dt_list, list) == True:
@@ -101,7 +101,7 @@ def extract_dLdt_blockmax(data, dt):
     df_blockmax['year'] = list_years_loop
 
     # initialise df to put the day on which that max dL/dt happens
-    df_daymax = pd.DataFrame(d, columns = ['year'] + list_colnames) #list(LL_df.columns)[1:len(LL_df.columns)]
+    df_daymax = pd.DataFrame(d, columns = ['year'] + list_colnames) 
     df_daymax['year'] = list_years_loop
      
     # Loop over full years
@@ -154,7 +154,7 @@ def remove_overlap_blocks(df_blockmax, dt):
 
 
 
-#%% run on  extended levels 1800s-2020
+#%%
 
 """
 OBSERVATIONAL
@@ -182,7 +182,7 @@ df_blockmax = extract_dLdt_blockmax(LL_df, dt)
 
 """
 OBSERVATIONAL SENSITIVITY TEST
-Downscale/Upscale extended timeseries late 1800s-2020 to monthly resolution to see if this introduces a bias in the PR you calculate 
+Upscale extended timeseries late 1800s-2020 to monthly resolution to see if this introduces a bias in the PR you calculate 
 """
 
 filepath = os.path.join(inDIR_Obs, 'lakelevel_ext_intr_HCDH22.csv')
@@ -235,4 +235,3 @@ df_blockmax_drop = remove_overlap_blocks(df_blockmax, dt)
 
 
 
-# %%
