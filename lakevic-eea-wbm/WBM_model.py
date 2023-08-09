@@ -21,23 +21,6 @@ Update 20 June 2023
 
 Translated and adapted from Vanderkelen et al. 2018 MATLAB model
 
-Environment: geo_HPC (maybe make a new one only with necessary packages, I have a lot of packages in this one now)
-
-Notes:
-    - check structure of scripts and sub-scripts
-    - the precip remapping was done with remapcon2 (on supercomputer) vs. the evaporation with bilinear interpolation (here with cdo-python)
-    check which one is better and why remapcon2 introduces negative precip values 
-    - is basin evaporation taken into account? (I dont think so, read theory of CN to understand what is and isn't taken into account and if CN=100 for all water bodies in basin makes sense or not)
-    - insert possibility to choose A_lake used to divide Qin and Qout, evaluate sensitivity to this 
-    - make loop to tune CN : figure out how to put this whole model in a loop and tune to observed lake levels -> maybe not necessary anymore
-    - make it possible to modify Ppn if necessary to correct model (a flag before the creation of the 1D timeseries)
-    - check how CRS and rio.clip are used and if this is correct
-    - ext: persiann obs nan data fill with climato
-
-Notes resolved: 
-    - understand why now P_lake is very similar to Inne's from MATLAB (a good thing) --> RESOLVED. 
-    - make a check early in code that checks ppn files are in order time,lat,lon --> check if this creates inconsistency in matlab v. python run (it does, matlab wants lon,lat=r,c then flipud, Python xarray to numpy array wants lat,lon then flipud) 
-    --> RESOLVED. Maybe make the error in Ppn file stop the code instead of just giving a warning message? 
 """
 
 #=============#
