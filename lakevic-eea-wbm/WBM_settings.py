@@ -9,8 +9,7 @@ settings and filepaths - this should be the only file the user modifies
 WBM "namelist" for user control:
     - set file paths
     - set start and end dates
-    - set CN method parameter (AMC)
-    - re-run with new PERSIANN file 
+    - set initial CN method parameter (AMC)
 
 """
 
