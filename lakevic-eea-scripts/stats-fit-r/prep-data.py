@@ -137,9 +137,3 @@ for i in models:
 plt.legend()
 
 
-
-#%%
-
-"""
-4. IOD models: detrended and not detrended - get from KX
-"""
