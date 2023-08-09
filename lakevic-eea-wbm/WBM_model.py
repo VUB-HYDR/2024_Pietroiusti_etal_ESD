@@ -4,13 +4,13 @@
 -------------------------------------
 Lake Victoria Water Balance Model 
 -------------------------------------
-    - Read in precipitation data and dividing into Plake and Pbasin --> 1 per day for each year
+    - Read in precipitation data and divide into Plake and Pbasin --> 1 per day for each year
     - Convert to 1D P_lake
-    - Read in evaporation data, reprojecting to own grid --> 1 per day for 1 year, copied for each year
+    - Read in evaporation data, reproject to own grid --> 1 per day for 1 year, copied for each year
     - Convert to 1D E_lake
     - Read in outflow data --> 1 per day for each year 
     - Convert to 1D Qout
-    - Calculate runoff per grid cell using Curve Number method --> add citations  
+    - Calculate runoff per grid cell using Curve Number method (see paper for references)  
     - Convert to 1D Qin 
     - Calculate WB
 
