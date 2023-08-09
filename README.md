@@ -18,7 +18,7 @@ lakevic-eea-scripts contains the analysis scripts.
 
 ### Data availability 
 
-Input data is available publicly, through databases detailed in the manuscript, or in the following repository: [https://doi.org/10.5281/zenodo.8229506/](https://doi.org/10.5281/zenodo.8229506)https://doi.org/10.5281/zenodo.8229506. 
+Input data is available publicly, through databases detailed in the manuscript, or in the following repository: [https://doi.org/10.5281/zenodo.8229506/](https://doi.org/10.5281/zenodo.8229506). 
 
 ## Version
 Version August 2023
