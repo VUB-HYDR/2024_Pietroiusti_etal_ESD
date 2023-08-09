@@ -49,19 +49,12 @@ import regionmask
 #=========================================================#
 
 # append path to call other scripts from here
-WBM_path = os.path.dirname(__file__) # /$VSC_DATA_VO_USER/vsc10419/Thesis/WBM-git/lakevic-eea-wbm
+WBM_path = os.path.dirname(__file__) 
 sys.path.append(WBM_path)
-from WBM_settings import * # imports all variables - put all user defined settings and paths and flags here (?) like a namelist 
+from WBM_settings import * # imports all variables - put all user defined settings and paths and flags here like a namelist 
 import WBM_inicon as inicon # initialise physical constants - e.g. print(inicon.Lvap)
 import WBM_inigeom as inigeom # lake victoria boundaries, size of a grid cell and resolution, shapefiles - e.g. print(inigeom.res_m, inigeom.A_cell)
 from WBM_myfunctions import compare_lake_areas, check_zeroarray, check_valuesarray, check_dimorders, check_punits, fig_showsave, update_fign # functions I defined 
-
-
-# # For raster data - check this, delete if not necessary
-# if run_where == 0 :
-#     from osgeo import gdal # local computer
-# if run_where == 1 :
-#     import gdal # for HPC 
 
 
 # Start message from settings file
@@ -114,13 +107,13 @@ with xr.open_dataset(filepath_evap_remap, decode_coords="all") as ds: # open the
     print('evaporation COSMO-CLM data')
     print(str(list(ds.keys())))
     print(str(list(ds.dims)))
-    ds_dims_evap = list(ds.dims) # time,lon, lat ---> check this is OK 
+    ds_dims_evap = list(ds.dims) # time,lon, lat 
     ds_varnames = list(ds.keys()) # get names of variables
     time_evap = np.array(ds.get('time'))
     lats_evap = np.array(ds.get('lat'))
     lons_evap = np.array(ds.get('lon'))
     evap_raw = ds[str(var)] # order: time, y, x
-    evap_raw.rio.write_crs("epsg:4326", inplace=True) # \\\\ see if this should be done here or not and that CRS is correct \\\\
+    evap_raw.rio.write_crs("epsg:4326", inplace=True) # assign CRS
     check_dimorders(ds)
     
 # Outflow multi-source (m^3 /day)
@@ -319,7 +312,7 @@ if flag_plotevap == 1:
     fig_n = update_fign(flag_savefig, fig_n)
 
 # Mask: evaporation over lake 
-evap_lake = evap_conv * (rmask_lake.values) # \\ CHECK THIS CLIPPING !! \\\ IT WORKS BUT WHY??
+evap_lake = evap_conv * (rmask_lake.values) 
 
 if flag_plotevap == 1:
     # --- Test --- 
@@ -346,7 +339,7 @@ fig_showsave(plt, flag_savefig, fig_path, fig_n)
 fig_n = update_fign(flag_savefig, fig_n)
 
 # Numpy method of getting E_lake for all years
-# Slicing and hard-coding index of Feb 29th (couldn't find a way of soft-coding that day's index)
+# Slicing and hard-coding index of Feb 29th 
 # See alternative method using for loop and xarray dates in extrascripts
 j = 0 
 E_lake = []
@@ -357,11 +350,8 @@ for i in range(len(np.unique(DATEs.year))):
     j = j + year_length
     end_slice = j-1
     if year_length == 366: 
-        #df[start_slice:end_slice, 'E_lake'] = E_mean_year.values
         E_slice = E_mean_year.values
     elif year_length == 365:
-        #df[start_slice:end_slice, 'E_lake'] = E_mean_year.drop_sel(time="28-02-2008", axis=time) # doesn't work ! 
-        #df[start_slice:end_slice, 'E_lake'] = E_mean_year.values[np.r_[0:59,60:366]] # get rid of Feb 29th, index 59, doenst work   
         E_slice = E_mean_year.values[np.r_[0:59,60:366]]
     else : 
         print('**ERROR** in length of years ')
@@ -472,7 +462,7 @@ check_zeroarray(AM_map, 'runoff')
 # -------------------------------------------------------
 AM_map[0:amc_days] = amc_initialvalue
 
-# mean AMC 0.0112 --> in Matlab this seems to be 0.0145, masking out the lake and the non-basin, here in Python seems to be 0.0167 \\ CHECK THIS \\
+# mean AMC 0.0112 --> note. in Matlab this seems to be 0.0145, masking out the lake and the non-basin, here in Python seems to be 0.0167 
 
 # Check initialisation is as desired, fxn: array to check, name of variable, desired value
 check_valuesarray(AM_map[0:amc_days], 'antecedent moisture', amc_initialvalue)
@@ -641,7 +631,6 @@ if flag_plotinflow == 1:
 
 
 #%% Calc Q per grid cell: New version using whole precip and not precipbasinlake and masking afterwards : Version 2 
-# THIS IS VERY SLOW, IMPROVE
 
 print('...calculating runoff Q_map')
 # -------------------------------------------------------
@@ -883,42 +872,6 @@ data = { 'date':  DATEs, # maybe delete this extra column?? or keep as a check?
 df_mm = pd.DataFrame(data)
 df_mm = df_mm.set_index('date') # why was this not necessary before the AC ouflow??
 df_mm.to_csv(os.path.join(out_path, 'WBM_run_{}_v0{}r0{}_{}_{}_mm.csv'.format(run_name, ver_n, run_n, startYEAR, endYEAR)), index=True)
-
-# v01
-# ----------
-# run1 --> Qout was overwritten by Qin, looked quite good, rising lake levels but not super dramatic
-# run2 --> Qin is much too high, something is wrong in the inflow calculations, fix this (it was a unit problem, fixed)
-# run3 --> falling lake levels, by 6 meters, Qin is much too low, check this, get it approx to the magnitude of Qout
-# run4 --> falling lake levels, by 8 meters, Qin is much too low, and I lowered P_lake by changing how I took the daily mean (I think P_lake is good now, we just need to get Qin up)
-# run5 --> much better!! I rewrote the Qin calculation making it more explicit, but still dry
-# run6 --> the same as run5 but initialised levels correctly, -75 mm/r
-# run7 --> test 1983-2020, -111 mm/yr
-# run6.5 --> the same result as run6, I changed the way of masking but no numerical effect apparent. 
-
-# v02 (regionmasking and NaN data) :
-# ----------------------
-# run 1 (with old NaN data reordered to be read in correctly as numpy array as well) --> weirdly the same results as with previous masking..
-# different NaN runs, coherence with matlab in P_lake and E_lake (when mean taken in same way)
-
-# v03 observational: 
-# ----------------------
-        # Plake and Elake spatial mean is now taken over all cells, not first x then y
-        # the lake and basin masks are made with regionmask in main script, always check in plots that they work!
-        # Elake climatology is now correct 
-# run 1 --> good, smaller bias (4.5 mm/month = 48 mm/year). P_lake is around 126 mm (ok), Evap has fallen a bit to 122 mm because of different way of taking spatial mean. Qin needs to be fixed. Qout ok 
-# run 2 1983-2020 --> good ! 
-
-# v04 observational: 
-# ----------------------
-# new outflow, AC earlier (from 2006)
-
-# v03 historical:
-# run 1 ISIMIP3b_hist_GFDL-ESM4 --> hadn't converted mm/s to mm/day, now done! it dries
-# v02 hist-nat:
-# it wets ! 
-
-# version numbering starts again in version made for HPC, from v01 and each run is a different input data
-# ----------------------
 
 
 #%% Plot LL with dates 
