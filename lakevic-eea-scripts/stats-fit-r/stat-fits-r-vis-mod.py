@@ -241,11 +241,7 @@ for i in range(len(GCMs)):
     # =============================================================================
 
 
-
-
-
-# check order of parameters is right for CIs !!!!!! 
-
+# check order of parameters for CIs 
 
 
 #%% Extra script: test scatter points
