@@ -11,7 +11,7 @@ WBM "namelist" for user control:
     - set start and end dates
     - set CN method parameter (AMC)
     - re-run with new PERSIANN file 
-Test push change on Git 05/12/22
+
 """
 
 import pandas as pd
@@ -30,9 +30,6 @@ run_where = 1
 ver_type = 'HPC'
 ver_n = 1
 run_n = 2 
-# history runs local - PERSIANN: 1: standard, 2:test agreed curve, 3: standard with df settings from ac (??)
-# history runs HPC - GFDL-ESM4 1: 1850-1860 test, 2: total 
-# v01r02 - PERSIANN nan filled 
 
 #=================#
 #== FLAGS:RUN ====#
@@ -65,10 +62,10 @@ if run_type == 1: # IF MODEL
                 # 5: MRI-ESM2-0
 
 if run_type == 2: # IF ISIMIP3a
-    flag_scenario = 1                           # OLD: flag_model_scenario
+    flag_scenario = 1                          
                 # 0: obsclim
                 # 1: counterclim
-    flag_data = 0                               # OLD flag_model_precip
+    flag_data = 0                               
                 # 0: 20CRv3-ERA5
 
 #======================#
@@ -109,10 +106,10 @@ if run_type == 0 :
     if flag_obs_precip == 0: # PERSIANN (could rename this to flag_data)
         startYEAR = 1985 # test to see if better  
         endYEAR =   2020 
-    if flag_obs_precip == 1: # CHIRPS - NEED MORE YEARS !! (try also centrends)
+    if flag_obs_precip == 1: # CHIRPS - extend years (try also centrends)
         startYEAR = 1981 
         endYEAR =   2015
-    if flag_obs_precip == 2: # MSWEP - NEED MORE YEARS !!
+    if flag_obs_precip == 2: # MSWEP - extend years
         startYEAR = 1979 
         endYEAR =   2017 
         
@@ -273,14 +270,13 @@ if run_where == 1: # HPC
         filepath_precip = glob.glob(in_path_precip + '/*pr_owngrid_*.nc')[0]   
 
 start_message_2 = '===========\nPrecip filepath: {}'.format(filepath_precip)
-#print(start_message_2)
 
 #==========================#
 #== CN METHOD SETTINGS ====#
 #==========================#
 
 amc_days = 5 
-amc_initialvalue = 0.0112 # mean condition, from original Vanderkelen WBM obs - check this value
+amc_initialvalue = 0.0112 # mean condition, taken from original Vanderkelen WBM obs 
 
              
 
