@@ -1,6 +1,6 @@
 # 2023_Pietroiusti_etal_ESD
 
-Water balance model and analysis scripts used in Pietroiusti et al. 2023 Lake Victoria flood attribution study. Data used in the analysis is available on Zenodo: [INSERT LINK].
+Water balance model and analysis scripts used in Pietroiusti et al. 2023 Lake Victoria flood attribution study. 
 
 ## Description 
 
@@ -18,7 +18,7 @@ lakevic-eea-scripts contains the analysis scripts.
 
 ### Data availability 
 
-Input data is available publicly, through databases detailed in the manuscript, or in the following repository: [https://doi.org/10.5281/zenodo.8229506/](https://doi.org/10.5281/zenodo.8229506). 
+Input data is available publicly, through databases detailed in the manuscript, or in the following repository: https://zenodo.org/record/8233523
 
 ## Version
 Version August 2023
