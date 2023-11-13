@@ -1,6 +1,11 @@
 *.Rdata
 *.Rhistory
 *figures*
-*output*
+output/event_def*
+output/precip*
+output/pr*
+output/stats*
+/output/*
+*/no-old/*
 data/data-modified/*
 data/input-data/lakelevels/no-track/*
