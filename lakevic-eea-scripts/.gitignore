@@ -1,6 +1,6 @@
 *.Rdata
 *.Rhistory
-*figures*
+/figures/*
 output/event_def*
 output/precip*
 output/pr*
