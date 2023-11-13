@@ -1,0 +1,1 @@
+# lakevic-eea-wbmExtreme event attribution study of 2020 Lake Victoria floods, MSc thesis turning into a paper submission for Earth System Dynamicslakevic-eea-wbm is the water balance model component of the analysis, i.e. WBM_pythonversion_HPC first upload onto GitHub to track further changes. by: Rosa Pietroiusti
