@@ -514,3 +514,23 @@ fig.tight_layout()
 #plt.savefig(os.path.join(fig_path,'blockmax_intervals_{}_{}_dt{}_v3.pdf'.format(startYEAR,endYEAR,dt_select)),dpi=300)
 
 
+#%%
+
+dLdt = LL_obs['dLdt_180'].loc[:'2020-12-30']
+dLdt_climato = dLdt.groupby(dLdt.index.dayofyear).mean() 
+dLdt_climato.plot()
+idx = pd.to_datetime('2020-05-17').dayofyear
+
+# day of year of event, avg climato value, how much of it is anomaly
+print(idx)
+print(dLdt_climato[idx])
+print(dLdt_climato[idx] / dLdt['2020-05-17'], 'percent is climatology')
+print(dLdt['2020-05-17'] - dLdt_climato[idx], 'm is anomaly' )
+
+# cfr avg month of may
+print(dLdt_climato[idx-5:idx+5].mean()) # months of may
+print(dLdt_climato[idx-5:idx+5].mean() / dLdt['2020-05-17']) # months of may
+#%%
+
+print(dLdt_climato.max())
+# %%
