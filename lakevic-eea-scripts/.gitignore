@@ -6,6 +6,7 @@ output/precip*
 output/pr*
 output/stats*
 /output/*
-*/no-old/*
+/no-old/*
+lakevic-eea-scripts/no-track/*
 data/data-modified/*
 data/input-data/lakelevels/no-track/*
