@@ -29,7 +29,7 @@ The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "M
 
 ## Extreme event analysis
 
-`lakevic-eea-scripts` contains the analysis scripts used in the attribution study. 
+`lakevic-eea-analysis` contains the analysis scripts used in the attribution study. 
 
 Scripts are divided into sections which correspond to the different sections of the analysis in the paper: 0 preprocessing, 1 analysis of observational precipitation data, 2 lake levels analysis and interpolation, 3 event definition, 4 evaluation of the WBM, 5 analysis of WB drivers, 6 GCM evaluation, 7 statistical fits for attribution and synthesis. 
 
@@ -45,11 +45,9 @@ Precipitation NetCDF files used in the paper are available publicly:
 1. PERSIANN-CDR from [NOAA](doi:10.7289/V51V5BWQ)
 2. ISIMIP3b bias-adjusted CMIP6 GCM output from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
 
-The location of precipitation input files should be specified in `WBM_settings.py`. 
-
 ### Data for extreme event analysis 
 
-All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-analysis/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
+All data used in the analysis that can be publicly shared is available in this repository. Input data in `lakevic-eea-analysis/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`. 
 
 `lakevic-eea-analysis/data/input-data/` contains the following: 
 1.	`IOD` timeseries from [NOAA](https://psl.noaa.gov/gcos_wgsp/Timeseries/DMI/)
