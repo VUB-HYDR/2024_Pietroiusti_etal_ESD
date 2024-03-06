@@ -1,4 +1,4 @@
-# Lake Victoria Extreme Event Attribution
+# Lake Victoria extreme event attribution of 2020 floods
 
 This repository contains the water balance model and analysis scripts used in Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods" (accepted). 
 
