@@ -21,7 +21,7 @@ Update 20 June 2023
 
 Translated and adapted from Vanderkelen et al. 2018 MATLAB model
 
-Environment: geo_HPC (maybe make a new one only with necessary packages, I have a lot of packages in this one now)
+Environment: geo_HPC 
 
 Notes:
     - check structure of scripts and sub-scripts
