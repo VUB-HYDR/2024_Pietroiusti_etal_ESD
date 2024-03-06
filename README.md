@@ -29,7 +29,16 @@ The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "M
 
 `lakevic-eea-analysis` contains the analysis scripts used in the attribution study. 
 
-Scripts are divided into sections which correspond to the different sections of the analysis in the paper: 0 preprocessing, 1 analysis of observational precipitation data, 2 lake levels analysis and interpolation, 3 event definition, 4 evaluation of the WBM, 5 analysis of WB drivers, 6 GCM evaluation, 7 statistical fits for attribution and synthesis. 
+Scripts are divided into sections which correspond to the different sections of the analysis in the paper: 
+
+0. preprocessing
+1. analysis of observational precipitation data
+2. lake levels analysis and interpolation
+3. event definition
+4. evaluation of the WBM
+5. analysis of WB drivers
+6. GCM evaluation
+7. statistical fits for attribution and synthesis
 
 ## Data availability & sources
 
