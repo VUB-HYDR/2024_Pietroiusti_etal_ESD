@@ -10,19 +10,18 @@ Figure: Vanderkelen et al., 2018, HESS
 
 ## Water balance model
 
-`lakevic-eea-wbm` contains the water balance model used in the study, and can be run from the main `WBM_model.py` script. 
+`lakevic-eea-wbm` contains the water balance model used in the study, it simulates daily lake levels for Lake Victoria, based on the following inputs:
 
-This model takes as input:
-1. Precipitation data, remapped using the provided grid specifications (`mygrid.txt`). 
+1. Precipitation data, remapped using the provided grid specifications `mygrid.txt` (data not provided but easily accessible). 
     - observational run: PERSIANN-CDR 1983-2020
     - attribution runs: CMIP6 GCM output historical and hist-nat bias adjusted with ISIMI3BASD from ISIMIP3b
 2. Evaporation data (provided) 
 3. Information on soil classes, land use, basin and lake shapefiles (provided)
 4. Outflow
     - observational run: semi-observational outflow (provided)
-    - attribution runs: calculated using the Agreed Curve. 
-
-`WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
+    - attribution runs: calculated using the Agreed Curve.
+  
+The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
 The water balance model is based on the MATLAB version developed in Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".
 
