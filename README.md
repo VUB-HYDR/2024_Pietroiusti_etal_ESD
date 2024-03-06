@@ -14,7 +14,7 @@ Figure: Vanderkelen et al., 2018, HESS
 
 The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
-The water balance model is based on the MATLAB version developed in Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".
+The water balance model is based on the MATLAB version developed in *Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".*
 
 The model takes as inputs:
 1. Precipitation data, which should be remapped using the provided grid specifications `mygrid.txt`. 
@@ -53,13 +53,11 @@ The location of precipitation input files should be specified in `WBM_settings.p
 
 All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-scripts/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
 
-The input data is as follows: 
-1.	IOD timeseries from NOAA, easily available elsewhere and referenced in paper
-2.	GMST time series from ISIMIP-corrected GCM data. These are not available on ISIMIP data repository (we got these by email from someone at ISIMIP/PIK – maybe I should I email to ask if they are ok with these being published? - also I only used 6 of these but published 20+ all the ones I received from ISIMIP in the repo, maybe I should upload only the ones I used or is it ok?) 
-3.	GMST time series from GISTEMP, easily available elsewhere 
-4.	Lake level timeseries from combining different sources (both your old version and my new version – should I maybe include only mine, since I don’t use yours in my paper?) 
-5.	All your original water balance model input data, of which I think only outflow data has been updated by me. I think it’s useful to provide all of this for reproducibility for whoever wants to run the WBM with different precip. 
-
+`lakevic-eea-scripts/data/input-data/` contains the following: 
+1.	IOD timeseries from NOAA, 
+2.	Annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data.
+3.	GMST time series from GISTEMP, 
+4.	Lake level timeseries based on a combination of DAHITI data and in situ measurements from *Vanderkelen et al. 2018, HESS*
 
 All data included in this repository is also archived on  [Zenodo](https://zenodo.org/record/8233523).
 
