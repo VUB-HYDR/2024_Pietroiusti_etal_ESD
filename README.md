@@ -27,7 +27,7 @@ The model takes as inputs:
   
 The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
 
-## Analysis of 2020 flood event
+## Extreme event analysis
 
 `lakevic-eea-scripts` contains the analysis scripts used in the attribution study. 
 
