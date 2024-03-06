@@ -35,29 +35,30 @@ Scripts are divided into sections which correspond to the different sections of 
 
 ## Data availability 
 
-### Water balance model 
+### Data for water balance model 
 
-All data necessary to run the WBM, except for precipitation data, is provided in this GitHub repository (`lakevic-eea-wbm/input-data/`). 
+All data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository (`lakevic-eea-wbm/input-data/`). 
 
 This includes: 
-1. Evaporation data `input_data/evap` and information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles` from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/).
-2. Outflow `input_data/outflow`, which is a combination of the version in [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new data. 
+1. Evaporation data `input_data/evap` and information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles` coming from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/).
+2. Outflow `input_data/outflow`, which is a combination of the version in [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new in situ data. 
 
 Precipitation NetCDF files used in the paper are available publicly:
 1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
 2. ISIMIP3b CMIP6 GCMs https://data.isimip.org/
-3. 
 The location of precipitation input files should be specified in `WBM_settings.py`. 
 
-### Extreme event analysis 
+### Data for extreme event analysis 
 
-All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-scripts/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
+All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-analysis/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
 
-`lakevic-eea-scripts/data/input-data/` contains the following: 
-1.	IOD timeseries from NOAA, 
-2.	Annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data.
-3.	GMST time series from GISTEMP, 
-4.	Lake level timeseries based on a combination of DAHITI data and in situ measurements from *Vanderkelen et al. 2018, HESS*
+`lakevic-eea-analysis/data/input-data/` contains the following: 
+1.	IOD timeseries from NOAA `IOD`
+2.	Annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data `gmst-models`
+3.	GMST time series from GISTEMP `gmst-obs`
+4.	Lake level timeseries `lakelevels` interpolated to daily resolution based on a combination of DAHITI data and in situ measurements from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/)
+
+### 
 
 All data included in this repository is also archived on  [Zenodo](https://zenodo.org/record/8233523).
 
