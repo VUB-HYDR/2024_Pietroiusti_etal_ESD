@@ -12,8 +12,12 @@ Figure: Vanderkelen et al., 2018, HESS
 
 `lakevic-eea-wbm` contains the water balance model used in the study, it simulates daily lake levels for Lake Victoria.
 
+The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
+
+The water balance model is based on the MATLAB version developed in Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".
+
 The model takes as inputs:
-1. Precipitation data, which should be remapped using the provided grid specifications `mygrid.txt` (data not provided but easily accessible). 
+1. Precipitation data, which should be remapped using the provided grid specifications `mygrid.txt`. 
     - observational run: PERSIANN-CDR 1983-2020
     - attribution runs: CMIP6 GCM output historical and hist-nat bias adjusted with ISIMI3BASD from ISIMIP3b
 2. Evaporation data (provided) 
@@ -22,11 +26,7 @@ The model takes as inputs:
     - observational run: semi-observational outflow (provided)
     - attribution runs: calculated using the Agreed Curve.
   
-The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
-
-The water balance model is based on the MATLAB version developed in Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".
-
-All input data necessary to run the model is in the `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data` directories (see 'Data Availability' below for details on where this data comes from), except for the precipitation data (see 'Data availability' below for details on where to get this data). 
+All input data necessary to run the model is in the `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data` directories, except for the precipitation data (see 'Data availability' below for more details). 
 
 ## Analysis of 2020 flood event
 
@@ -38,7 +38,12 @@ Scripts are divided into sections which correspond to the different sections of 
 
 ### Water balance model 
 
-All data necessary to run the WBM is provided in this GitHub repository (`lakevic-eea-wbm/input-data/`), except for precipitation NetCDF files, which are available publicly, here:
+All data necessary to run the WBM, except for precipitation data, is provided in this GitHub repository (`lakevic-eea-wbm/input-data/`). 
+
+This includes: 
+
+
+Precipitation NetCDF files used in the paper are available publicly, here:
 1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
 2. ISIMIP3b CMIP6 GCMs https://data.isimip.org/
 
@@ -46,7 +51,15 @@ The location of precipitation input files should be specified in `WBM_settings.p
 
 ### Extreme event analysis 
 
-All analysis data that can be publicly shared is available in this repository (input data in `lakevic-eea-scripts/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
+All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-scripts/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
+
+The input data is as follows: 
+1.	IOD timeseries from NOAA, easily available elsewhere and referenced in paper
+2.	GMST time series from ISIMIP-corrected GCM data. These are not available on ISIMIP data repository (we got these by email from someone at ISIMIP/PIK – maybe I should I email to ask if they are ok with these being published? - also I only used 6 of these but published 20+ all the ones I received from ISIMIP in the repo, maybe I should upload only the ones I used or is it ok?) 
+3.	GMST time series from GISTEMP, easily available elsewhere 
+4.	Lake level timeseries from combining different sources (both your old version and my new version – should I maybe include only mine, since I don’t use yours in my paper?) 
+5.	All your original water balance model input data, of which I think only outflow data has been updated by me. I think it’s useful to provide all of this for reproducibility for whoever wants to run the WBM with different precip. 
+
 
 All data included in this repository is also archived on  [Zenodo](https://zenodo.org/record/8233523).
 
@@ -55,3 +68,7 @@ Version November 2023
 
 ## Author
 Rosa Pietroiusti
+
+## References 
+
+If you use this 
