@@ -26,7 +26,7 @@ The model takes as inputs:
     - observational run: semi-observational outflow (provided)
     - attribution runs: calculated using the Agreed Curve.
   
-All input data necessary to run the model is in the `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data` directories, except for the precipitation data (see 'Data availability' below for more details). 
+All input data necessary to run the model is in the `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data` directories, except for precipitation data (see 'Data availability' below for more details). 
 
 ## Analysis of 2020 flood event
 
