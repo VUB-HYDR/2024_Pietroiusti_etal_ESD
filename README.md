@@ -14,7 +14,7 @@ Figure: Vanderkelen et al., 2018, HESS
 
 The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
-The water balance model is based on the MATLAB version developed in *Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria".*
+The water balance model is based on the MATLAB version developed in [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
 
 The model takes as inputs:
 1. Precipitation data, which should be remapped using the provided grid specifications `mygrid.txt`. 
