@@ -1,0 +1,11 @@
+gmst-models/piControl/*
+gmst-models/ssp126/*
+gmst-models/ssp245/*
+gmst-models/ssp370/*
+gmst-models/ssp585/*
+gmst-models/historical/CNRM-ESM2-1/*
+gmst-models/historical/EC-Earth3/*
+gmst-models/historical/MPI*
+gmst-models/historical/UKESEM*
+*no-track*
+*igiss*.nc

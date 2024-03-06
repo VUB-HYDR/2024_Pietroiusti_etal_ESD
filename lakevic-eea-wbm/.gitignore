@@ -2,3 +2,4 @@
 *.sh
 output/2023/*
 .git
+*outflow_merged_cmd_1948_2021.csv
