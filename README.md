@@ -42,11 +42,12 @@ All data necessary to run the WBM, except for precipitation data, is provided in
 
 This includes: 
 1. Evaporation data `input_data/evap` and information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles` from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/).
-2. Outflow `input_data/outflow`, which is a combination of the version in [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new data collected in Pietroiusti et al. 2024. 
+2. Outflow `input_data/outflow`, which is a combination of the version in [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new data. 
 
-Precipitation NetCDF files used in the paper are available publicly, here:
+Precipitation NetCDF files used in the paper are available publicly:
 1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
 2. ISIMIP3b CMIP6 GCMs https://data.isimip.org/
+3. 
 The location of precipitation input files should be specified in `WBM_settings.py`. 
 
 ### Extreme event analysis 
