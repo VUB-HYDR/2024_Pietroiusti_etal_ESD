@@ -14,7 +14,7 @@ Figure: Vanderkelen et al., 2018, HESS
 
 The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
-All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability'). 
+All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability'). The location of precipitation input files should be specified in `WBM_settings.py`. 
 
 The model takes as inputs:
 1. Precipitation data, which should be remapped using the grid specifications in `mygrid.txt`. 
@@ -30,7 +30,7 @@ The water balance model is based on the MATLAB version developed in [Vanderkelen
 
 ## Analysis of 2020 flood event
 
-`lakevic-eea-scripts` contains the analysis scripts used inthe attribution study. 
+`lakevic-eea-scripts` contains the analysis scripts used in the attribution study. 
 
 Scripts are divided into sections which correspond to the different sections of the analysis in the paper: 0 preprocessing, 1 analysis of observational precipitation data, 2 lake levels analysis and interpolation, 3 event definition, 4 evaluation of the WBM, 5 analysis of WB drivers, 6 GCM evaluation, 7 statistical fits for attribution and synthesis. 
 
@@ -47,7 +47,7 @@ Precipitation NetCDF files used in the paper are available publicly, here:
 1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
 2. ISIMIP3b CMIP6 GCMs https://data.isimip.org/
 
-The location of precipitation input files should be specified in `WBM_settings.py`. 
+
 
 ### Extreme event analysis 
 
