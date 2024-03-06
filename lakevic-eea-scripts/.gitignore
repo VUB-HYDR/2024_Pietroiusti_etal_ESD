@@ -10,3 +10,14 @@ output/stats*
 lakevic-eea-scripts/no-track/*
 data/data-modified/*
 data/input-data/lakelevels/no-track/*
+data/input-data/gmst-models/piControl/*
+data/input-data/gmst-models/ssp126/*
+data/input-data/gmst-models/ssp245/*
+data/input-data/gmst-models/ssp370/*
+data/input-data/gmst-models/ssp585/*
+data/input-data/gmst-models/historical/CNRM-ESM2-1/*
+data/input-data/gmst-models/historical/EC-Earth3/*
+data/input-data/gmst-models/historical/MPI*
+data/input-data/gmst-models/historical/UKESEM*
+*no-track*
+*igiss*.nc
