@@ -10,9 +10,10 @@ Figure: Vanderkelen et al., 2018, HESS
 
 ## Water balance model
 
-`lakevic-eea-wbm` contains the water balance model used in the study, it simulates daily lake levels for Lake Victoria, based on the following inputs:
+`lakevic-eea-wbm` contains the water balance model used in the study, it simulates daily lake levels for Lake Victoria.
 
-1. Precipitation data, remapped using the provided grid specifications `mygrid.txt` (data not provided but easily accessible). 
+The model takes as inputs:
+1. Precipitation data, which should be remapped using the provided grid specifications `mygrid.txt` (data not provided but easily accessible). 
     - observational run: PERSIANN-CDR 1983-2020
     - attribution runs: CMIP6 GCM output historical and hist-nat bias adjusted with ISIMI3BASD from ISIMIP3b
 2. Evaporation data (provided) 
