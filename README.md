@@ -25,7 +25,7 @@ The model takes as inputs:
     - observational run: semi-observational outflow `input_data/outflow` 
     - attribution runs: calculated by the model using the Agreed Curve.
   
-The water balance model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
+The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
 
 ## Analysis of 2020 flood event
 
