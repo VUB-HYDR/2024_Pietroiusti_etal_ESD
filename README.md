@@ -21,10 +21,10 @@ The model takes as inputs:
     - observational run: PERSIANN-CDR 1983-2020
     - attribution runs: CMIP6 GCM output historical and hist-nat bias adjusted with ISIMI3BASD from ISIMIP3b
 2. Evaporation data `input_data/evap`
-3. Information on soil classes, land use, basin and lake shapefiles `input_data/CN`
+3. Information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles`
 4. Outflow
-    - observational run: semi-observational outflow `input_data/outflow` and `input_data/shapefiles`
-    - attribution runs: calculated using the Agreed Curve.
+    - observational run: semi-observational outflow `input_data/outflow` 
+    - attribution runs: calculated by the model using the Agreed Curve.
   
 The water balance model is based on the MATLAB version developed in [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
 
