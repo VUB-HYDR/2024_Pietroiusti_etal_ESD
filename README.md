@@ -1,6 +1,6 @@
 # Extreme event attribution of 2020 Lake Victoria floods
 
-This repository contains the water balance model and analysis scripts used in **Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods"** (accepted). 
+This repository contains the water balance model and analysis scripts used in [**Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods"**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/) (accepted). 
 
 The water balance model `lakevic-eea-wbm` simulates lake levels for Lake Victoria based on the following inputs: precipitation, evaporation, outflow and soil types and land cover in the basin. The analysis scripts in `lakevic-eea-analysis` reproduce all results in the paper including analysing the main drivers of the high 2020 lake levels and applying a probabilistic extreme event attribution methodology to estimate the role of anthropogenic climate change in the 2020 high lake levels. 
 
