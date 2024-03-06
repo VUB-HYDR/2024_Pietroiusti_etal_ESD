@@ -33,7 +33,7 @@ The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "M
 
 Scripts are divided into sections which correspond to the different sections of the analysis in the paper: 0 preprocessing, 1 analysis of observational precipitation data, 2 lake levels analysis and interpolation, 3 event definition, 4 evaluation of the WBM, 5 analysis of WB drivers, 6 GCM evaluation, 7 statistical fits for attribution and synthesis. 
 
-## Data availability 
+## Data availability & sources
 
 ### Data for water balance model 
 
@@ -42,8 +42,9 @@ All data necessary to run the WBM, except for precipitation data, are provided i
 2. Outflow `input_data/outflow`, which is a combination of data from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new in situ data. 
 
 Precipitation NetCDF files used in the paper are available publicly:
-1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
-2. ISIMIP3b CMIP6 GCMs https://data.isimip.org/
+1. PERSIANN-CDR from [NOAA](doi:10.7289/V51V5BWQ)
+2. ISIMIP3b bias-adjusted CMIP6 GCM output from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
+
 The location of precipitation input files should be specified in `WBM_settings.py`. 
 
 ### Data for extreme event analysis 
@@ -51,12 +52,12 @@ The location of precipitation input files should be specified in `WBM_settings.p
 All data used in the analysis that can be publicly shared is available in this repository (input data in `lakevic-eea-analysis/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`).
 
 `lakevic-eea-analysis/data/input-data/` contains the following: 
-1.	`IOD` timeseries from NOAA
-2.	`gmst-models`: annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data 
-3.	`gmst-obs`: GMST time series from GISTEMP 
-4.	`lakelevels`: lake levels from DAHITI and in situ measurements from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/)
+1.	`IOD` timeseries from [NOAA](https://psl.noaa.gov/gcos_wgsp/Timeseries/DMI/)
+2.	`gmst-models`: annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
+3.	`gmst-obs`: GMST time series from [GISTEMP](https://data.giss.nasa.gov/gistemp/)
+4.	`lakelevels`: lake levels from [DAHITI](https://dahiti.dgfi.tum.de/en/products/water-level-altimetry/) and in situ measurements from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/)
 
-### 
+### Archive
 
 All data included in this repository is also archived on  [Zenodo](https://zenodo.org/record/8233523).
 
@@ -66,5 +67,5 @@ Version November 2023
 ## Author
 Rosa Pietroiusti
 
-## References 
+## Citing  
 If you use this code or data created by this study please cite [**Pietroiusti et al. 2024**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/). If you use data in this repository coming from other sources, please cite them, all DOI/links are present in this documentation. 
