@@ -41,7 +41,8 @@ Scripts are divided into sections which correspond to the different sections of 
 All data necessary to run the WBM, except for precipitation data, is provided in this GitHub repository (`lakevic-eea-wbm/input-data/`). 
 
 This includes: 
-
+1. Evaporation data `input_data/evap` and information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles` from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/).
+2. Outflow `input_data/outflow`, which is a combination of the version in [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/) and new data collected in Pietroiusti et al. 2024. 
 
 Precipitation NetCDF files used in the paper are available publicly, here:
 1. PERSIANN-CDR: https://www.ncei.noaa.gov/products/climate-data-records/precipitation-persiann 
