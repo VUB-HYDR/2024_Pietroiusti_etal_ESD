@@ -1,4 +1,4 @@
-# Pietroiusti et al. 2024 (ESD) Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods
+# Lake Victoria Extreme Event Attribution
 
 This repository contains the water balance model and analysis scripts used in Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods" (accepted). 
 
