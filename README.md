@@ -44,7 +44,9 @@ Scripts are divided into sections which correspond to the different sections of 
 
 ### Data for water balance model 
 
-All data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository `lakevic-eea-wbm/input-data/`. This includes: 
+All data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository.
+
+`lakevic-eea-wbm/input-data/` contains:
 1. Evaporation data `input_data/evap` from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/), originally from [Thiery et al. 2015](https://journals.ametsoc.org/view/journals/clim/28/10/jcli-d-14-00565.1.xml)
 2. Information on soil classes and land cover `input_data/CN` from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/), originally from [JRC](https://publications.jrc.ec.europa.eu/repository/handle/JRC24914) and [Dewitte et al. 2013](https://www.sciencedirect.com/science/article/abs/pii/S0016706113002401?via%3Dihub) 
 3. basin and lake shapefiles `input_data/shapefiles` from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/) and [Harvard dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PWFW26)
@@ -56,13 +58,15 @@ Precipitation NetCDF files used in the paper are available publicly:
 
 ### Data for extreme event analysis 
 
-All data used in the analysis that can be publicly shared is available in this repository. Input data in `lakevic-eea-analysis/data/input-data/` and outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`. 
+All data used in the analysis that can be publicly shared is available in this repository.
 
 `lakevic-eea-analysis/data/input-data/` contains the following: 
 1.	`IOD` timeseries from [NOAA](https://psl.noaa.gov/gcos_wgsp/Timeseries/DMI/)
 2.	`gmst-models`: annual GMST time series from ISIMIP3b bias-adjusted CMIP6 data from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
 3.	`gmst-obs`: GMST time series from [GISTEMP](https://data.giss.nasa.gov/gistemp/)
 4.	`lakelevels`: lake levels from [DAHITI](https://dahiti.dgfi.tum.de/en/products/water-level-altimetry/) and in situ measurements from [Vanderkelen et al. 2018, HESS](https://hess.copernicus.org/articles/22/5509/2018/)
+
+outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/2022`. 
 
 ### Archive
 
