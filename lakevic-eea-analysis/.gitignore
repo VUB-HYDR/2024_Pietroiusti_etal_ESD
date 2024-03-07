@@ -21,3 +21,4 @@ data/input-data/gmst-models/historical/MPI*
 data/input-data/gmst-models/historical/UKESM*
 *no-track*
 *igiss*.nc
+data/*
