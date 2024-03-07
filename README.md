@@ -62,4 +62,5 @@ Version November 2023
 Rosa Pietroiusti
 
 ## References  
-If you use this code or data created by this study please cite [**Pietroiusti et al. 2024**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/). If you use data in this repository coming from other sources, please cite them, all DOI/links are present in this documentation. 
+Pietroiusti, R., Vanderkelen, I., Otto, F. E. L., Barnes, C., Temple, L., Akurut, M., Bally, P., van Lipzig, N. P. M., and Thiery, W.: Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods, EGUsphere [preprint], https://doi.org/10.5194/egusphere-2023-1827, 2023. 
+
