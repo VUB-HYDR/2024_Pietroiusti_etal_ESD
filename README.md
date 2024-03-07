@@ -28,7 +28,7 @@ The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "M
 
 ## Data for water balance model 
 
-For ease of reproducibility, all data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository. 
+For ease of reproducibility, all data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository, as well as in a Zenodo repository linked to below.  
 
 `lakevic-eea-wbm/input-data/` and `lakevic-eea-wbm/modified_data` contain:
 1. Evaporation data `input_data/evap` from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/), originally from [Thiery et al. 2015](https://journals.ametsoc.org/view/journals/clim/28/10/jcli-d-14-00565.1.xml)
