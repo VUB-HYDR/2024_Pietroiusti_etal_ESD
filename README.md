@@ -2,7 +2,9 @@
 
 This repository contains the water balance model and analysis scripts used in [**Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods"**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/) (accepted). 
 
-The water balance model `lakevic-eea-wbm` simulates lake levels for Lake Victoria based on the following inputs: precipitation, evaporation, outflow and soil types and land cover in the basin. The analysis scripts in `lakevic-eea-analysis` reproduce all results in the paper including analysing the main drivers of the high 2020 lake levels and applying a probabilistic extreme event attribution methodology to estimate the role of anthropogenic climate change. 
+The water balance model `lakevic-eea-wbm` simulates lake levels for Lake Victoria based on the following inputs: precipitation, evaporation, outflow and soil types and land cover in the basin. 
+
+The analysis scripts in `lakevic-eea-analysis` reproduce all results in the paper including analysing the main drivers of the high 2020 lake levels and applying a probabilistic extreme event attribution methodology to estimate the role of anthropogenic climate change. 
 
 <img src=/lakevic-eea-wbm/input_data/shapefiles/fig01.png alt="drawing" width="400" ALIGN=”center” />
 Figure source: Vanderkelen et al. 2018
@@ -13,10 +15,8 @@ Figure source: Vanderkelen et al. 2018
 
 The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
-All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability'). The model takes as inputs:
+All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability'):
 1. Precipitation data, which should be remapped using the grid specifications in `mygrid.txt`. 
-    - observational run: PERSIANN-CDR 1983-2020
-    - attribution runs: CMIP6 GCM output bias-adjusted within ISIMIP3b
 2. Evaporation data `input_data/evap`
 3. Information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles`
 4. Outflow
