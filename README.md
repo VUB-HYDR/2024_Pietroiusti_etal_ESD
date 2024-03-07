@@ -15,7 +15,7 @@ Figure source: Vanderkelen et al. 2018
 
 The model can be run from the main `WBM_model.py` script. `WBM_settings.py` acts as a namelist and should be modified to run the model under different scenarios and forcings and to specify input data paths, `WBM_inicon.py` initiates constants in the model, `WBM_inigeom.py` imports shapefiles and geoinformation about Lake Victoria and the basin.
 
-All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability'):
+The model takes as inputs:
 1. Precipitation data, which should be remapped using the grid specifications in `mygrid.txt`. 
 2. Evaporation data `input_data/evap`
 3. Information on soil classes, land use, basin and lake shapefiles `input_data/CN` and `input_data/shapefiles`
@@ -23,6 +23,8 @@ All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and
     - observational run: semi-observational outflow `input_data/outflow` 
     - attribution runs: calculated by the model using the Agreed Curve.
   
+All input data necessary to run the model is in `lakevic-eea-wbm/input_data` and `lakevic-eea-wbm/modified_data`, except for precipitation (see 'Data availability').
+
 The model is based on the MATLAB version from [Vanderkelen et al. 2018, HESS, "Modelling the water balance of Lake Victoria"](https://hess.copernicus.org/articles/22/5509/2018/).
 
 ## Extreme event analysis
