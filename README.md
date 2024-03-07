@@ -4,7 +4,7 @@ This repository contains the water balance model and analysis scripts used in [*
 
 The water balance model `lakevic-eea-wbm` simulates lake levels for Lake Victoria based on the following inputs: precipitation, evaporation, outflow and soil types and land cover in the basin. 
 
-The analysis scripts in `lakevic-eea-analysis` reproduce all results in the paper including analysing the main drivers of the high 2020 lake levels and applying a probabilistic extreme event attribution methodology to estimate the role of anthropogenic climate change. 
+The analysis scripts in `lakevic-eea-analysis` reproduce all results in the paper including analysing the main drivers of the high 2020 lake levels and applying a probabilistic extreme event attribution methodology to estimate the role of anthropogenic climate change in the event. 
 
 <img src=/lakevic-eea-wbm/input_data/shapefiles/fig01.png alt="drawing" width="400" ALIGN=”center” />
 Figure source: Vanderkelen et al. 2018
@@ -44,6 +44,13 @@ Scripts are divided into sections which correspond to the different sections of 
 
 ## Data availability & sources
 
+All data necessary to reproduce analyses is archived on  [Zenodo](https://zenodo.org/record/8233523), except for precipitation files. 
+
+Precipitation NetCDF files used in the paper are available publicly:
+1. PERSIANN-CDR from [NOAA](https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00854/html#)
+2. ISIMIP3b bias-adjusted CMIP6 GCM output from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
+
+
 ### Data for water balance model 
 
 All data necessary to run the WBM, except for precipitation data, are provided in this GitHub repository.
@@ -54,9 +61,6 @@ All data necessary to run the WBM, except for precipitation data, are provided i
 3. basin and lake shapefiles `input_data/shapefiles` from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/) and [Harvard dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PWFW26)
 4. Outflow `input_data/outflow` which is a combination of data from [Vanderkelen et al. 2018](https://hess.copernicus.org/articles/22/5509/2018/) and new in situ data. 
 
-Precipitation NetCDF files used in the paper are available publicly:
-1. PERSIANN-CDR from [NOAA](https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00854/html#)
-2. ISIMIP3b bias-adjusted CMIP6 GCM output from [ISIMIP](https://doi.org/10.48364/ISIMIP.842396.1)
 
 ### Data for extreme event analysis 
 
@@ -72,7 +76,6 @@ outputs of the WBM runs that are behind the paper in `lakevic-eea-wbm/output/202
 
 ### Archive
 
-All data included in this repository is also archived on  [Zenodo](https://zenodo.org/record/8233523).
 
 ## Version
 Version November 2023
@@ -80,5 +83,5 @@ Version November 2023
 ## Author
 Rosa Pietroiusti
 
-## Citing  
+## References  
 If you use this code or data created by this study please cite [**Pietroiusti et al. 2024**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/). If you use data in this repository coming from other sources, please cite them, all DOI/links are present in this documentation. 
