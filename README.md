@@ -1,6 +1,7 @@
 # Extreme event attribution of 2020 Lake Victoria floods
 
-DOI: 10.5281/zenodo.10794482
+[![DOI](https://zenodo.org/badge/676547448.svg)](https://zenodo.org/doi/10.5281/zenodo.10794481)
+
 
 This repository contains the water balance model and analysis scripts used in [**Pietroiusti et al. 2024 "Possible role of anthropogenic climate change in the record-breaking 2020 Lake Victoria levels and floods"**](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-1827/) (accepted). 
 
